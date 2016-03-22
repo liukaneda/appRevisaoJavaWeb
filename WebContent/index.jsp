@@ -11,6 +11,11 @@
 	</head>
 	<body>
 		
+		<c:if test="${not empty msg }">
+				<h2>Usuário ou Senha inválidos</h2>
+		</c:if>
+		
+		
 		<form action="/appRevisaoJavaWeb/servletController" method="post">
 			<label for="login">Login:</label>
 			<input type="text" id="login" name="login" /> <br />
@@ -19,9 +24,7 @@
 			<button type="submit">LOGAR:</button>
 		</form>
 		
-		<c:if test="${not empty msg }">
-				<h2>Usuário ou Senha inválidos</h2>
-		</c:if>
+		
 		
 	</body>
 </html>
