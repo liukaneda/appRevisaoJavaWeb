@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<h1>Usuário autenticado!</h1>
+	<h1>${usuario.login} -autenticado!</h1>
 
 </body>
 </html>

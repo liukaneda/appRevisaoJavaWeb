@@ -49,13 +49,15 @@ public class ServletController extends HttpServlet {
 			
 			boolean retorno = uD.autenticado(u);
 			if(retorno){
-				String pagina = "/principal.jsp";
+				String pagina = "/WEB-INF/jsp/principal.jsp";
+				request.setAttribute("usuario", u);
 				dispatcher = getServletContext()
 								.getRequestDispatcher(pagina);
 				dispatcher.forward(request, response);
 				
 			}else{
 				String pagina = "/index.jsp";
+				request.setAttribute("msg", "Erro ao logar!");
 				dispatcher = getServletContext()
 						.getRequestDispatcher(pagina);
 				dispatcher.forward(request, response);

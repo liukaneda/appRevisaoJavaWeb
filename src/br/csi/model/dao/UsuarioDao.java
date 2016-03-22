@@ -1,6 +1,7 @@
 package br.csi.model.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,6 +16,13 @@ primary key(id))
 select * from usuario
 
 insert into usuario(login, senha) values ('alencar','123')
+
+sqlinjection:
+'; DROP TABLE usuario; --
+select * from usuario where login = 'alencar' and senha = 'teste'; DROP TABLE usuario; --';
+
+'or'1'='1
+
  * */
 
 
@@ -42,13 +50,21 @@ public class UsuarioDao {
 		boolean autenticado = false;
 		
 		Connection c = ConectaBDPostgres.getConexao();
-		Statement stmt = c.createStatement();
+		//Statement stmt = c.createStatement();
 		
-		String sql = "select * from usuario "
-		+ "where login = '"+u.getLogin()+"'"
-				+ " and senha = '"+u.getSenha()+"';";
+		//String sql = "select * from usuario "
+		//+ "where login = '"+u.getLogin()+"'"
+		//		+ " and senha = '"+u.getSenha()+"';";
 		
-		ResultSet rs = stmt.executeQuery(sql);
+		String sql = "select * from usuario where "
+				+ "login =? and senha =?";
+		PreparedStatement stmtPre = c.prepareStatement(sql);
+		stmtPre.setString(1, u.getLogin());
+		stmtPre.setString(2, u.getSenha());			
+		//ResultSet rs = stmt.executeQuery(sql);
+		ResultSet rs = stmtPre.executeQuery();
+		
+		
 		
 		while(rs.next()){
 			long id = rs.getLong("id");
