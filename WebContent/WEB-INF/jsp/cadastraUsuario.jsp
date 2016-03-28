@@ -8,10 +8,7 @@
 </head>
 <body>
 
-	<h1>${usuario.login} -autenticado!</h1>
-	
-	<a href="servletController?opcao=cadastrarUsuario">
-			Cadastrar Usuário</a>
+	<h1>cadastrar usuario</h1>
 
 </body>
 </html>

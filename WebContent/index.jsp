@@ -21,7 +21,8 @@
 			<input type="text" id="login" name="login" /> <br />
 			<label for="senha">Senha:</label>
 			<input type="text" id="senha" name="senha"> <br />
-			<button type="submit">LOGAR:</button>
+			<button type="submit" name="opcao" 
+			value = "logar">LOGAR:</button>			
 		</form>
 		
 		
