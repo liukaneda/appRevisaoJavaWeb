@@ -16,7 +16,7 @@
 		</c:if>
 		
 		
-		<form action="/appRevisaoJavaWeb/servletController" method="post">
+		<form action="/appRevisaoJavaWeb/mvc?logica=LogarLogica" method="post">
 			<label for="login">Login:</label>
 			<input type="text" id="login" name="login" /> <br />
 			<label for="senha">Senha:</label>
